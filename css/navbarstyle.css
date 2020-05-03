@@ -1,0 +1,41 @@
+@import"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+.navigation_bar{
+    padding-top: 20px;
+    background-color: #4280DB;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 60px;
+}
+.navimg{
+    padding: 0px;
+    margin: 0px; 
+    width: 150px; 
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+.logout{
+    margin-top: 10px;
+    margin-left: 55px;
+    color:white;
+    text-decoration:none;
+    float: right;
+}
+.navlogo{
+    padding: 0px;
+    margin: 0px; 
+    width: 50px; 
+    float: left;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+/* section{
+    padding: 0 100px;
+    background: #0355A2;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+} */

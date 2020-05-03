@@ -1,0 +1,41 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0%;
+    padding: 0;
+    background-color: rgb(189, 223, 252) ;
+}
+#loading{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #0D0123 url('./bgimages/t9k.gif') no-repeat center;
+    z-index: 99999;
+  }
+
+#pop{
+    height: 150px;
+    width: 500px;
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+    top: 35%;
+    left: 35%;
+    border: 2px solid;
+    padding: 10px;
+    padding-left: 40px;
+    background:  #4280DB;
+    color: white;
+    border-radius: 6px;
+}
+#close{
+    right: 5;
+    top: 5;
+    float: right;
+}
+#ok{
+    width: 60px;
+    position: absolute;
+    float: center;
+    left: 45%;
+    height: 27px;
+}

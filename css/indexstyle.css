@@ -1,0 +1,193 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0%;
+    padding: 0;
+    background-image: url('./bgimages/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 70% 100%;
+    background-color: rgb(189, 223, 252) ;
+    background-position: 0% 10%;
+}
+#loading{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #0D0123  url('./bgimages/t9k.gif') no-repeat center;
+  z-index: 99999;
+}
+.wrapper{
+    top: 25%;
+    left: 72%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
+    padding: 50px;
+    background: rgba(255,255,255,.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    align-items: flex-end;
+    text-align: center;
+}
+h2{
+    margin: 0 0 20px;
+    padding: 0;
+    font-size: 48px;
+    text-transform: uppercase;
+    color: #0355A2;
+}
+p{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+.button1{
+    background: #0355A2;
+    color: #ccc;
+    width: 150px;
+    height: 45px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: .6s;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+  .button1:focus{
+    outline: none;;
+  }
+  
+  .button1::before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.5s;
+    filter: blur(30px);
+    transform: translate(-130px) skew(-15deg);
+  }
+  .button1:after{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255);
+    width: 30px;
+    height: 100%;
+    left: 30px;
+    top: 0;
+    opacity: 0.5s;
+    filter: blur(30px);
+    transform: translate(-100px) skew(-15deg);
+  }
+  .button1:hover{
+    background: black;
+    box-shadow: 0 14px 18px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+  }
+  .button1:hover::before{
+    transform: translate(300px) skew(-15deg);
+    opacity: .6;
+    transition: .7s;
+  }
+  .button1:hover::after{
+    transform: translate(300px) skew(-15deg);
+    opacity: 1;
+    transition: .7s;
+  }
+  @media screen and (max-width:500px){
+    body{
+        font-family: 'Open Sans', sans-serif;
+        margin: 0%;
+        padding: 0;
+        background-color: rgb(189, 223, 252) ;
+    }
+    .wrapper{
+        top: 75%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        max-width: 250px;
+        padding: 50px;
+        background: rgba(255,255,255,.2);
+        box-shadow: 0 5px 15px rgba(0,0,0,.5);
+        align-items: flex-end;
+        text-align: center;
+    }
+    h2{
+        margin: 0 0 20px;
+        padding: 0;
+        font-size: 38px;
+        text-transform: uppercase;
+        color: #0355A2;
+    }
+    p{
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+    .button1{
+        background: #0355A2;
+        color: #ccc;
+        width: 120px;
+        height: 40px;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        border-radius: 20px;
+        transition: .6s;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+      }
+      .button1:focus{
+        outline: none;;
+      }
+      
+      .button1::before{
+        content: '';
+        display: block;
+        position: absolute;
+        background: rgba(255,255,255);
+        width: 60px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0.5s;
+        filter: blur(30px);
+        transform: translate(-130px) skew(-15deg);
+      }
+      .button1:after{
+        content: '';
+        display: block;
+        position: absolute;
+        background: rgba(255,255,255);
+        width: 30px;
+        height: 100%;
+        left: 30px;
+        top: 0;
+        opacity: 0.5s;
+        filter: blur(30px);
+        transform: translate(-100px) skew(-15deg);
+      }
+      .button1:hover{
+        background: black;
+        box-shadow: 0 14px 18px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        cursor: pointer;
+      }
+      .button1:hover::before{
+        transform: translate(300px) skew(-15deg);
+        opacity: .6;
+        transition: .7s;
+      }
+      .button1:hover::after{
+        transform: translate(300px) skew(-15deg);
+        opacity: 1;
+        transition: .7s;
+      }
+
+  }
