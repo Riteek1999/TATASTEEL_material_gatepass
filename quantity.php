@@ -37,11 +37,11 @@ $row=mysqli_fetch_array($result);
             <div class="col-md-6 offset-md-3">
                 <div class="regForm">
                     <h1>SELECT QUANTITY</h1>
-                    <form method="POST" action="transport.php">
+                    <form method="POST" action="transport.php" id="evaForm">
 
                         <div class="form-group">
-                            <label>Quantity upto <?php echo $row['quantity']; ?></label>
-                            <input type="number" class="form-control" placeholder="Enter Quantity in the limit mentioned above only" name="qty" required>
+                            <label>Quantity upto <?php echo $row['quantity']; $json = json_encode($row['quantity']); echo"<div id='enteredqty' style='display:none;'>" . $json ."</div>" ?></label>
+                            <input type="number" class="form-control" placeholder="Enter Quantity in the limit mentioned above only" name="qty" id="qty" required>
                         </div>
                         <div class="form-group">
                         <label>Unit</label>
@@ -57,5 +57,6 @@ $row=mysqli_fetch_array($result);
     </div>
     </form>
     <script src="./js/preloader.js"></script>  
+    <script src="./js/script4.js"></script>  
     </body>
 </html>

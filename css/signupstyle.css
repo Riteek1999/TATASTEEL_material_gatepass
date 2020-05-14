@@ -45,3 +45,15 @@ input::-webkit-inner-spin-button {
 .c{
     margin-top: 15vh;
 }
+.okayimg{
+        height: 110px;
+        width: 150px; 
+        float: left;
+}
+@media screen and (max-width:500px){
+    .okayimg{
+        height: 110px;
+        width: 150px; 
+        float: none;
+}   
+}

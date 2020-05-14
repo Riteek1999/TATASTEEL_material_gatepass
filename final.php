@@ -47,35 +47,82 @@ $QUANTITY = $_SESSION['qty'];
 $UNIT = $_SESSION['unit'];
 $VEHICLE=$_SESSION['vehicle'];
 $GPID=mt_rand(1000, 10000);
-
-
+       $query="SELECT * FROM approval WHERE userid='$USERID'AND m_did='$DESTINATION_ID' AND m_sid='$SOURCE_ID' AND material='$MATERIAL' AND quantity='$QUANTITY' AND unit='$UNIT' AND m_tid='$VEHICLE' OR gpid='$GPID' AND activeindex='y';";
+       $result=mysqli_query($con,$query)or die(mysqli_error($con));
+       if(mysqli_num_rows($result)>0){
+           echo "ERROR:already applied for these details";
+       }
+else{
       $query="INSERT INTO approval(userid,m_did,m_sid,approver,material,quantity,unit,m_tid,courierservice,c_contactno,courieremp_pno,e_contactno,gpid,activeindex) VALUES($USERID,$DESTINATION_ID,$SOURCE_ID,'$APPROVAL','$MATERIAL',$QUANTITY,'$UNIT','$VEHICLE','$CNAME',$CMNO,$EPNO,$EMNO,$GPID,'y')";
-
       $result=mysqli_query($con,$query)or die(mysqli_error($con));
 
+      $query="UPDATE m_transport
+      SET activeindex='n'
+      WHERE m_tid = $VEHICLE;";
+      $result=mysqli_query($con,$query)or die(mysqli_error($con));
+
+      $query="SELECT * FROM m_material WHERE material='$MATERIAL';";
+      $result=mysqli_query($con,$query)or die(mysqli_error($con));
+      $row=mysqli_fetch_array($result);
+      $TOTALQTY=$row['quantity'];
+
+      $qty=$TOTALQTY-$QUANTITY;
+
+      $query="UPDATE m_material
+      SET quantity=$qty
+      WHERE material = '$MATERIAL';";
+      $result=mysqli_query($con,$query)or die(mysqli_error($con));
     ?>
 
 <div class="container c">
-        <div class="row text-center">
+        <div class="row text-center" class="okayimg">
             <div class="col-md-6 offset-md-3">
                 <div class="regForm">
-                    <h1>GATEPASS GENERATED</h1>
-                            <label>USERID : <?php echo $USERID; ?></label><br>
-                            <label>SOURCEID : <?php echo $SOURCE_ID; ?></label><br>
-                            <label>DESTINATIONID : <?php echo $DESTINATION_ID; ?></label><br>
-                            <label>APPROVER : <?php echo $APPROVAL; ?></label><br>
-                            <label>MATERIAL : <?php echo $MATERIAL; ?></label><br>
-                            <label>QUANTITY : <?php echo $QUANTITY; ?></label><br>
-                            <label>UNIT : <?php echo $UNIT; ?></label><br>
-                            <label>VEHICLEID : <?php echo $VEHICLE; ?></label><br>
-                            <label>GATEPASSID : <?php echo $GPID; ?></label>
+                <div style="background-color: white;"><img src="./images/okay.gif" class="okayimg"> <h1>GATEPASS GENERATED</h1> </div>
+                <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <?php 
+                    $query="SELECT * FROM user WHERE userid='$USERID';";
+                    $result=mysqli_query($con,$query)or die(mysqli_error($con));
+                    $row=mysqli_fetch_array($result);
+                ?>
+                <tr class="table-success"><th>GATEPASSID </th><th> <?php echo $GPID; ?></th></tr><br>
+                <tr class="table-primary"><td>NAME </td><td> <?php echo $row['name']; ?></td></tr>
+                <?php 
+                    $query="SELECT * FROM m_source WHERE m_sid='$SOURCE_ID';";
+                    $result=mysqli_query($con,$query)or die(mysqli_error($con));
+                    $row=mysqli_fetch_array($result);
+                ?>
+                <tr class="table-primary"><td>SOURCE </td><td> <?php echo $row['source']; ?></td></tr>
+                <?php 
+                    $query="SELECT * FROM m_destination WHERE m_did='$DESTINATION_ID';";
+                    $result=mysqli_query($con,$query)or die(mysqli_error($con));
+                    $row=mysqli_fetch_array($result);
+                ?>
+                <tr class="table-primary"><td>DESTINATION </td><td> <?php echo $row['destinations']; ?></td></tr>
+                <tr class="table-primary"><td>APPROVER </td><td> <?php echo $APPROVAL; ?></td></tr>
+                <tr class="table-primary"><td>MATERIAL </td><td> <?php echo $MATERIAL; ?></td></tr>
+                <tr class="table-primary"><td>QUANTITY </td><td> <?php echo $QUANTITY; ?></td></tr>
+                <tr class="table-primary"><td>UNIT </td><td> <?php echo $UNIT; ?></td></tr>
+                <?php 
+                    $query="SELECT * FROM m_transport WHERE m_tid='$VEHICLE';";
+                    $result=mysqli_query($con,$query)or die(mysqli_error($con));
+                    $row=mysqli_fetch_array($result);
+                ?>
+                <tr class="table-primary"><td>VEHICLE </td><td> <?php echo $row['transport'];echo " ";echo $row['transport_no'] ?></td></tr>
+
+</table>
+</div>
 <form>
                             <input type="button" value="Print this page" class="btn btn-primary btn-lg btn-block" onClick="window.print()">
 </form>
+</div>
                 </div>
             </div>
         </div>
     </div>
-
+<?php 
+} 
+?>
     </body>
 </html>

@@ -38,7 +38,7 @@ if(isset($_POST['approval'])){
 }
 ?>
 <?php
-$query="SELECT * FROM m_material";
+$query="SELECT * FROM m_material WHERE activeindex='y';";
 $result=mysqli_query($con,$query)or die(mysqli_error($con));
 ?>
 <div class="container c">

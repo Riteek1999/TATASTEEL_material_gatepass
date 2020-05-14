@@ -104,10 +104,15 @@ p{
         font-family: 'Open Sans', sans-serif;
         margin: 0%;
         padding: 0;
+        background-image: url('./bgimages/bg.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 40%;
         background-color: rgb(189, 223, 252) ;
     }
     .wrapper{
-        top: 75%;
+        top: 55%;
+        left: 5%;
         position: absolute;
         display: flex;
         justify-content: center;

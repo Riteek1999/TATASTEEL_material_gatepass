@@ -8,7 +8,7 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/signupstyle.css">
-    <title>Gatepass</title>
+    <title>MANAGE</title>
 </head>
 <body onload="myfuction()">
     <div id="loading"></div>
@@ -17,10 +17,10 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="regForm">
-                    <div class="o">Logged in as:<?php echo $_SESSION['usermail'];?><div>
+                    <div class="o">Manage Gatepass<div>
 
-                        <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href = 'location.php';" title="material gatepass form">Create gatepass</button>
-                        <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href = 'admin.php';" title="Admin panel">Manage</button>
+                        <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href = 'update.php';" title="update gatepass">Update gatepass</button>
+                        <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href = 'update_material.php';" title="update material">Update Material</button>
                 </div>
             </div>
         </div>

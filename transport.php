@@ -24,13 +24,14 @@ if(isset($_POST['qty'])){
        $UNIT=$_POST['unit'];
        $_SESSION['qty']=$QUANTITY;
        $_SESSION['unit']=$UNIT;
+
        // $query="INSERT INTO approval(loc_id,approval,activeindex) VALUES($LOC,'$APPROVER','n')";
        // echo $query;
        // $result=mysqli_query($con,$query) or die(mysqli_error($con));
 }
 ?>
 <?php
-$query="SELECT * FROM m_transport";
+$query="SELECT * FROM m_transport WHERE activeindex='y';";
 $result=mysqli_query($con,$query)or die(mysqli_error($con));
 ?>
 <div class="container c">

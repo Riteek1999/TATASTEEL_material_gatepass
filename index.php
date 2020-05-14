@@ -14,6 +14,7 @@
 
 <?php
 include 'navbar.php';
+unset($_SESSION['usermail']);
 ?>
             <section>
             <div class="wrapper">
